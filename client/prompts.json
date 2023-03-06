@@ -1,0 +1,13 @@
+{
+    "demographics": "If the question is not applicable to the topic, do not answer. Topic is Demographics",
+    "household": "If the question is not applicable to the topic, do not answer. Topic is Household",
+    "housing-units": "If the question is not applicable to the topic, do not answer. Topic is Housing Units",
+    "housing-units-rooms": "If the question is not applicable to the topic, do not answer. Topic is Housing Units - Rooms",
+    "employment": "If the question is not applicable to the topic, do not answer. Topic is Employment",
+    "income": "If the question is not applicable to the topic, do not answer. Topic is Income",
+    "rent-cost": "If the question is not applicable to the topic, do not answer. Topic is Rent & Cost",
+    "poverty": "If the question is not applicable to the topic, do not answer. Topic is Poverty",
+    "commute": "If the question is not applicable to the topic, do not answer. Topic is Commute",
+    "insurance": "If the question is not applicable to the topic, do not answer. Topic is Insurance"
+  }
+  

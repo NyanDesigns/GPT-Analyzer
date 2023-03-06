@@ -1,8 +1,10 @@
 import bot from './assets/bot.svg'
 import user from './assets/user.svg'
 
+const promptFilePath = 'prompts.json';
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
+const buttons = document.querySelectorAll('#title-buttons button');
 
 // Reply Loading Animation
 let loadInterval
@@ -66,7 +68,7 @@ function chatStripe(isAi, value, uniqueId) {
 }
 
 // Submit Button Function
-const handleSubmit = async (e) => {
+const handleSubmit = async (e, promptString) => {
     e.preventDefault()
 
     const data = new FormData(form)
@@ -97,7 +99,7 @@ const handleSubmit = async (e) => {
         },
         mode: 'cors',
         body: JSON.stringify({
-            prompt: data.get('prompt')
+            prompt: data.get('prompt') + promptString
         })
     })
 
@@ -117,9 +119,40 @@ const handleSubmit = async (e) => {
     }
 }
 
-form.addEventListener('submit', handleSubmit)
-form.addEventListener('keyup', (e) => {
-    if (e.keyCode === 13) {
-        handleSubmit(e)
+// Active Button
+
+buttons.forEach(button => {
+  button.addEventListener('click', async () => {
+
+    buttons.forEach(otherButton => {
+      otherButton.classList.remove('active');
+    });
+
+    // Make Active
+    button.classList.add('active');
+
+    // Declare
+    const promptName = button.id;
+    const response = await fetch(promptFilePath);
+    const prompts = await response.json();
+    const promptString = prompts[promptName];
+
+    const activeButton = document.querySelector('#title-buttons button.active');
+    if (activeButton) {
+    console.log('The active button is:', activeButton.textContent);
+    } else {
+    console.log('No button is currently active.');
     }
-})
+
+    // Submit Button
+    console.log(promptString)
+    form.addEventListener('submit', handleSubmit)
+    form.addEventListener('keyup', (e) => {
+        if (e.keyCode === 13) {
+            handleSubmit(e, promptString)
+        }
+    })
+
+  });
+});
+
