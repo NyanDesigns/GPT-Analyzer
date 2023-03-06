@@ -8,31 +8,40 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
-    <div id="title">
-      <h1>M3: Macro Analyzer</h1>
-      <div id="title-buttons">
-        <button id="demographics">Demographics</button>
-        <button id="household">Household</button>
-        <button id="housing-units">Housing Units</button>
-        <button id="housing-units-rooms">Housing Units - Rooms</button>
-        <button id="employment">Employment</button>
-        <button id="income">Income</button>
-        <button id="rent-cost">Rent & Cost</button>
-        <button id="poverty">Poverty</button>
-        <button id="commute">Commute</button>
-        <button id="insurance">Insurance</button>
+    <div id="container">
+      <div id="title">
+        <h1>SANTA ANA: Macro Assistant</h1>
+        <div id="title-buttons">
+          <button id="demographics">Demographics I</button>
+          <button id="demographics2">Demographics II</button>
+          <button id="demographics3">Demographics III</button>
+          <button id="household">Household I</button>
+          <button id="household2">Household II</button>
+          <button id="household3">Household III</button>
+          <button id="housing-units">Housing-Units I</button>
+          <button id="housing-units2">Housing-Units II</button>
+          <button id="housing-units3">Housing-Units III</button>
+          <button id="housing-units4">Housing-Units IV</button>
+          <button id="education">Education</button>
+          <button id="employment">Employment I</button>
+          <button id="employment2">Employment II</button>
+          <button id="income">Income I</button>
+          <button id="income2">Income II</button>
+          <button id="housing-costs">Housing-Costs</button>
+          <button id="mortgage">Mortgage</button>
+          <button id="rent">Rent</button>
+          <button id="commute">Commute</button>
+          <button id="insurance">Insurance</button>
+        </div>
+        <p id="subtitle">Make sure to select a catagory from above to ask on.</p>
       </div>
-    </div>
-    
-
-    <div id="app">
-      <div id="chat_container"></div>
-
-      <form>
-        <textarea name="prompt" rows="1" cols="1" placeholder="Ask me anything SANTA-ANA ..."></textarea>
-        <button type="submit"><img src="assets/send.svg" alt="send" />
-      </form>
+      <div id="app">
+        <div id="chat_container"></div>
+        <form>
+          <textarea name="prompt" rows="1" cols="1" placeholder="Ask me anything SANTA-ANA ..."></textarea>
+          <button type="submit"><img src="assets/send.svg" alt="send" /></button>
+        </form>
+      </div>
     </div>
 
     <script type="module" src="script.js"></script>

@@ -3,6 +3,7 @@ import user from './assets/user.svg'
 
 const promptFilePath = 'prompts.json';
 const form = document.querySelector('form')
+const subtitleElement = document.getElementById('subtitle');
 const chatContainer = document.querySelector('#chat_container')
 const buttons = document.querySelectorAll('#title-buttons button');
 
@@ -92,14 +93,14 @@ const handleSubmit = async (e, promptString) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    const response = await fetch('https://gpt-analyzer.onrender.com', {
+    const response = await fetch('http://localhost:5000/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         mode: 'cors',
         body: JSON.stringify({
-            prompt: data.get('prompt') + promptString
+            prompt: promptString + data.get('prompt')
         })
     })
 
@@ -119,8 +120,22 @@ const handleSubmit = async (e, promptString) => {
     }
 }
 
-// Active Button
+//subtitle
+fetch("subtitles.json")
+  .then(response => response.json())
+  .then(subtitles => {
+    buttons.forEach(buttons => {
+      buttons.addEventListener("click", () => {
+        // get the id of the clicked button
+        const buttonId = buttons.id;
 
+        // update the subtitle element with the corresponding subtitle
+        subtitleElement.textContent = subtitles[buttonId];
+      });
+    });
+  });
+
+// Active Button
 buttons.forEach(button => {
   button.addEventListener('click', async () => {
 
@@ -155,4 +170,3 @@ buttons.forEach(button => {
 
   });
 });
-
