@@ -1,7 +1,7 @@
 import bot from './assets/bot.svg'
 import user from './assets/user.svg'
 
-const promptFilePath = './public/prompts.json';
+const promptFilePath = 'prompts.json';
 const form = document.querySelector('form')
 const subtitleElement = document.getElementById('subtitle');
 const chatContainer = document.querySelector('#chat_container')
@@ -121,7 +121,7 @@ const handleSubmit = async (e, promptString) => {
 }
 
 //subtitle
-fetch("./public/subtitles.json")
+fetch("subtitles.json")
   .then(response => response.json())
   .then(subtitles => {
     buttons.forEach(buttons => {
